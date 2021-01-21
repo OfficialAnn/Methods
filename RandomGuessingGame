@@ -1,0 +1,61 @@
+using System;
+
+namespace mymethods
+{ 
+    class Program
+    {
+        static void Main(string[] args)
+        {
+         int level = 0;
+          Console.WriteLine("There are three levels, choose 1 for Easy, 2 for Intermediate and 3 for Hard");
+          Console.WriteLine("What level would you like to play?");
+          level = int.Parse(Console.ReadLine());
+           
+           int level1 = 1;
+           int level2 = 2;
+           int level3 = 3;
+            if (level == level1);
+          {
+          Game(6,1,10);
+          }
+           if (level == level2)
+           {
+             Game(4,1,20);
+           }
+           else if (level == level3)
+           {
+            Game(3,1,50);
+           }
+        }
+           public static void Game(int trials, int min, int max)
+          {
+            Random random = new Random();
+            int guess = random.Next(min, max);
+            int Trials = 0;
+            Console.WriteLine("Please guess the number:");
+            int Guess = int.Parse(Console.ReadLine());
+            do
+            {
+              if (Trials == trials)
+              {
+                Console.WriteLine("Oh! you already used up your trials, the number was actually {guess}");
+                break;
+
+              } 
+              if (Guess != guess) 
+              {
+                Console.WriteLine("You did not get the number correctly, please try again...");
+                break;
+
+              }
+              if (Guess == guess)
+              {
+                Console.WriteLine($"Yay! You guessed correctly, the number is truly {guess}");
+                break;
+              }
+            }
+            while(Guess != guess);
+          }   
+        
+    }
+}
